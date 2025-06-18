@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stone Paper Scissors</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Heading -->
+      <div id="heading">
+        <h1 id="head-text">Stone Paper Scissors</h1>
+      </div>
+
+      <!-- Buttons -->
+      <div id="btn-area">
+        <button class="btn" id="stone">
+          <img
+            class="btn-img"
+            id="stone-logo"
+            src="src/stone.png"
+            alt="stone"
+          />
+        </button>
+        <button class="btn" id="paper">
+          <img
+            class="btn-img"
+            id="paper-logo"
+            src="src/paper.png"
+            alt="paper"
+          />
+        </button>
+        <button class="btn" id="scissors">
+          <img
+            class="btn-img"
+            id="scissors-logo"
+            src="src/scissors.png"
+            alt="scissors"
+          />
+        </button>
+      </div>
+
+      <!-- Score -->
+      <div id="score-area">
+        <div id="ply-score" class="score-div">
+          <div id="ply-name" class="scorer">Player</div>
+          <div id="ply-score" class="score-amt">0</div>
+        </div>
+        <div id="comp-score" class="score-div">
+          <div id="comp-name" class="scorer">Computer</div>
+          <div id="comp-score" class="score-amt">0</div>
+        </div>
+      </div>
+
+      <!-- Moves -->
+      <div id="move-area">
+        <div id="ply-move" class="move">Your Move: -</div>
+        <div id="comp-move" class="move">Computer Move: -</div>
+      </div>
+
+      <!-- Result -->
+      <div id="res-area">
+        <div id="res-msg" class="draw-msg">Click a button to play!</div>
+      </div>
+
+      <!-- Reset Game -->
+      <div id="reset-area">
+        <button id="reset">Reset Game</button>
+      </div>
+    </main>
+
+    <!-- Link JS -->
+    <script src="app.js"></script>
+  </body>
+</html>
