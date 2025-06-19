@@ -81,6 +81,8 @@ function playRound(playerChoice) {
 
   const winner = determineWinner(playerChoice, compChoice);
 
+  // Instead of .classLists addition and removal for each case, we use .className
+  // .className assigns only that particular class to the element
   if (winner === "player") {
     playerScore++;
     result.innerText = "You Win!";

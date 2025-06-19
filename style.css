@@ -26,6 +26,7 @@ body {
 #head-text {
   color: #dda15e;
   padding: 2vmin;
+  font-size: 5vmin;
   text-shadow: 0 0 1rem rgba(254, 250, 224, 0.1);
 }
 
@@ -42,7 +43,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 6vmin;
-  margin: 4vmin 0;
+  margin: 3vmin 0;
   flex-wrap: wrap;
 }
 
@@ -78,7 +79,7 @@ body {
 
 #score-area {
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -178,7 +179,7 @@ body {
   margin-top: 2vmin;
   border-radius: 50px;
   background-color: #fefae0;
-  box-shadow: inset 0 0 0.75rem rgba(221, 161, 94, 0.4);
+  box-shadow: inset 5px 0 0.75rem rgba(221, 161, 94, 0.4);
   color: #bc6c25;
   cursor: pointer;
   font-family: "Sour Gummy", cursive;
@@ -186,6 +187,6 @@ body {
 }
 
 #reset:hover {
-  box-shadow: inset 0 0 1.5rem rgba(221, 161, 94, 0.6);
+  box-shadow: inset 0 5px 1.5rem rgba(221, 161, 94, 0.6);
   transition: 0.2s ease-in-out;
 }
