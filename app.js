@@ -27,63 +27,73 @@ function compInput() {
 reset.addEventListener("click", () => {
   playerScore = 0;
   compScore = 0;
-  playerScoreElement.textContent = playerScore;
-  computerScoreElement.textContent = compScore;
-  playerMove.textContent = "Your Move: -";
-  computerMove.textContent = "Computer Move: -";
-  result.textContent = "Click a button to play!";
+  playerScoreElement.innerText = playerScore;
+  computerScoreElement.innerText = compScore;
+  playerMove.innerText = "Your Move: -";
+  computerMove.innerText = "Computer Move: -";
+  result.innerText = "Click a button to play!";
   result.className = "draw-msg";
 });
 
 function updateScore() {
-  playerScoreElement.textContent = playerScore;
-  computerScoreElement.textContent = compScore;
+  playerScoreElement.innerText = playerScore;
+  computerScoreElement.innerText = compScore;
 }
 
 function determineWinner(playerChoice, compChoice) {
   if (playerChoice === compChoice) {
-    return 'draw';
+    return "draw";
   }
   if (
-    (playerChoice === 'stone' && compChoice === 'scissors') ||
-    (playerChoice === 'paper' && compChoice === 'stone') ||
-    (playerChoice === 'scissors' && compChoice === 'paper')
+    (playerChoice === "stone" && compChoice === "scissors") ||
+    (playerChoice === "paper" && compChoice === "stone") ||
+    (playerChoice === "scissors" && compChoice === "paper")
   ) {
-    return 'player';
+    return "player";
   }
-  return 'computer';
+  return "computer";
 }
 
 // Event listeners for player choices
-stone.addEventListener("click", () => playRound('stone'));
-paper.addEventListener("click", () => playRound('paper'));
-scissors.addEventListener("click", () => playRound('scissors'));
+stone.addEventListener("click", () => playRound("stone"));
+paper.addEventListener("click", () => playRound("paper"));
+scissors.addEventListener("click", () => playRound("scissors"));
 
 function playRound(playerChoice) {
-  const choices = ['stone', 'paper', 'scissors'];
-  const compChoice = choices[Math.floor(Math.random() * choices.length)];
-  
-  // Update move displays
-  playerMove.textContent = `Your Move: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
-  computerMove.textContent = `Computer Move: ${compChoice.charAt(0).toUpperCase() + compChoice.slice(1)}`;
-  
-  // Determine the winner
-  const winner = determineWinner(playerChoice, compChoice);
-  
-  // Update scores and display result
-  if (winner === 'player') {
-    playerScore++;
-    result.textContent = 'You Win!';
-    result.className = 'win-msg';
-  } else if (winner === 'computer') {
-    compScore++;
-    result.textContent = 'You Lose!';
-    result.className = 'lost-msg';
+  const choices = ["stone", "paper", "scissors"];
+  let rand = Math.floor(Math.random() * 3);
+  let compChoice;
+  if (rand === 0) {
+    compChoice = "stone";
+  } else if (rand === 1) {
+    compChoice = "paper";
   } else {
-    result.textContent = 'Draw!';
-    result.className = 'draw-msg';
+    compChoice = "scissors";
   }
-  
+
+  // First letter uppercase and rest as it is -> String functions
+  playerMove.innerText = `Your Move: ${
+    playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)
+  }`;
+  computerMove.innerText = `Computer Move: ${
+    compChoice.charAt(0).toUpperCase() + compChoice.slice(1)
+  }`;
+
+  const winner = determineWinner(playerChoice, compChoice);
+
+  if (winner === "player") {
+    playerScore++;
+    result.innerText = "You Win!";
+    result.className = "win-msg";
+  } else if (winner === "computer") {
+    compScore++;
+    result.innerText = "You Lose!";
+    result.className = "lost-msg";
+  } else {
+    result.innerText = "Draw!";
+    result.className = "draw-msg";
+  }
+
   // Update score display
   updateScore();
 }
