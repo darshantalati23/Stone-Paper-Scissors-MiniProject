@@ -13,9 +13,14 @@ let playerScore = 0;
 let compScore = 0;
 
 function compInput() {
-  const choices = ["stone", "paper", "scissors"];
-  const rand = Math.floor(Math.random() * choices.length);
-  return choices[rand];
+  let rand = Math.floor(Math.random() * 3);
+  if (rand === 0) {
+    return "stone";
+  } else if (rand === 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
 }
 
 // Reset game function
@@ -53,10 +58,12 @@ function determineWinner(playerChoice, compChoice) {
 }
 
 // Event listeners for player choices
-const choices = document.querySelectorAll(".choice");
+const choices = document.querySelectorAll(".btn");
 choices.forEach(choice => {
   choice.addEventListener("click", (e) => {
-    const playerChoice = e.target.id;
+    choices.forEach(btn => btn.classList.remove('active'));
+    choice.classList.add('active');
+    const playerChoice = choice.id;
     playRound(playerChoice);
   });
 });
@@ -69,7 +76,6 @@ function playRound(playerChoice) {
 
   const compChoice = compInput();
 
-  // First letter uppercase and rest as it is
   playerMove.innerText = `Your Move: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
   computerMove.innerText = `Computer Move: ${compChoice.charAt(0).toUpperCase() + compChoice.slice(1)}`;
 
