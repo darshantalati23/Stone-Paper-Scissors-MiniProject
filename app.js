@@ -40,21 +40,43 @@ function updateScore() {
 }
 
 function determineWinner(playerChoice, compChoice) {
-  if (!playerChoice || !compChoice) {
-    return "error";
-  }
+  // Better Code:
+  // {
+  //   if (!playerChoice || !compChoice) {
+  //     return "error";
+  //   }
   
+  //   if (playerChoice === compChoice) {
+  //     return "draw";
+  //   }
+  
+  //   const winningCombinations = {
+  //     stone: "scissors",
+  //     paper: "stone",
+  //     scissors: "paper"
+  //   };
+  
+  //   return winningCombinations[playerChoice] === compChoice ? "player" : "computer";
+  // }
+
+  // Normal Code
   if (playerChoice === compChoice) {
     return "draw";
   }
-  
-  const winningCombinations = {
-    stone: "scissors",
-    paper: "stone",
-    scissors: "paper"
-  };
-  
-  return winningCombinations[playerChoice] === compChoice ? "player" : "computer";
+
+  if (playerChoice === "stone" && compChoice === "scissors") {
+    return "player";
+  }
+
+  if (playerChoice === "paper" && compChoice === "stone") {
+    return "player";
+  }
+
+  if (playerChoice === "scissors" && compChoice === "paper") {
+    return "player";
+  }
+
+  return "computer";
 }
 
 // Event listeners for player choices
